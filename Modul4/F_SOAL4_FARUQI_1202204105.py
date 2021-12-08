@@ -1,21 +1,19 @@
-from collections import defaultdict
-
 class Graph():
     def __init__(self):
-        self.graph = defaultdict(list)
+        self.graph = {}
         self.distance = {}
 
     def add_graph(self,cities):
         if cities in self.graph:
             return "City already exists"
         else:
-            self.graph[cities] = []
-            self.distance[cities] = []
+            self.graph[cities] = {}
+            self.distance[cities] = {}
             return f'{cities} added to graph'
 
     def add_distance(self, fromCity, toCity, distance:int):
-        self.graph[fromCity].append(toCity)
-        self.graph[toCity].append(fromCity)
+        self.graph[fromCity] = toCity
+        self.graph[toCity] = fromCity
         self.distance[(fromCity,toCity)] = distance
         self.distance[(toCity,fromCity)] = distance
 
@@ -170,3 +168,4 @@ if __name__ == "__main__":
             break
         else:
             print('Invalid Choice')
+
