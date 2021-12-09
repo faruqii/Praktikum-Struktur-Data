@@ -33,6 +33,9 @@ class Main:
         self.g = Graph()
 
     def countDistance(self,start,end):
+        # This Function return the shortest distance from start to end
+        # If start and end are same it will return 0
+        # Using BFS Algorithm
         if start not in self.g.graph or end not in self.g.graph:
             return "Invalid City"
         if start == end:
@@ -50,7 +53,12 @@ class Main:
         return "Route Not Possible"
 
 
-    def dijkstra(self,start,end):
+    def shortestPath(self,start,end):
+        # This Function return the shortest path from start to end
+        # If start and end are same it will return the start city
+        # Using Dijkstra Algorithm
+        if start not in self.g.graph or end not in self.g.graph:
+            return "Invalid City"
         shortest_distance = {start :(None,0)}
         current_node = start
         visited = set()
@@ -99,9 +107,9 @@ class Main:
                 self.g.add_distance(city1,city2,int(distance))
             elif choice == 3:
                 city1,city2= input("Enter Route From-To: ").split(",")
-                print(f'The Route is {self.dijkstra(city1,city2)} with distance {self.countDistance(city1,city2)} KM')
+                print(f'The Route is {self.shortestPath(city1,city2)} with distance {self.countDistance(city1,city2)} KM')
             elif choice == 4:
-                print(self.g.printGraph())
+                self.g.printGraph()
             elif choice == 5:
                 cities = input("Enter city name to delete: ")
                 print(self.g.deleteGraph(cities))
