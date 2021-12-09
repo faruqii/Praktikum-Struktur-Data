@@ -15,3 +15,9 @@
         'c':110,
     }
 '''
+
+Arcamanik,Bojongsoang,70
+Arcamanik,Ciumbuleuit,90
+Bojongsoang,Ciumbuleuit,100
+Bojongsoang,Dago,150
+Ciumbuleuit,Dago,110

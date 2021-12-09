@@ -26,7 +26,7 @@ class Graph():
 
     def printGraph(self):
         for key, value in self.graph.items():
-            print(key, value)
+            print(f'{key} => {value}')
 
 class Main:
     def __init__(self):
