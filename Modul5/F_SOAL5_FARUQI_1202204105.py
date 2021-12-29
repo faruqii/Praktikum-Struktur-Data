@@ -11,15 +11,15 @@ class BubbleSort:
     def Sort(self):
         file = pd.read_csv(self.filename)
         file = file.values.tolist()
-
+        
         if self.collumn == 0:
-            print('Sorted by Rank')
+            print('\nSorted by Rank')
         elif self.collumn == 1:
-            print('Sorted By Title')
+            print('\nSorted By Title')
         elif self.collumn == 2:
-            print('Sorteed by H-5 Index')
+            print('\nSorted by H-5 Index')
         elif self.collumn == 3:
-            print('Sorteed by H-5 Median')
+            print('\nSorted by H-5 Median')
 
         for i in range(len(file)):
             swapped = False
@@ -33,13 +33,8 @@ class BubbleSort:
         for sort in range(10):
             print(file[sort])
 
-        print(f'Time taken to run: {time.time() - Algorithm} seconds')
+        print(f'Sort Algorithm Runtime: {time.time() - Algorithm} sec')
 
 if __name__ == '__main__':
     Files = BubbleSort('Daspro.csv',3)
     Files.Sort()
-  
-
-
-
-    
