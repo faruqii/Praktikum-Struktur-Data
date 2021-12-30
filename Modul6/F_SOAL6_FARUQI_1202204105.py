@@ -13,6 +13,9 @@ class Search:
         # Read file using pandas and convert to list
         file = pd.read_csv(filename)
         file = file.values.tolist()
+        return file
+
+    def sort(self,file):
         # Sort whole file using Selection Sort 
         for i in range(len(file)):
             min_index = i
@@ -29,7 +32,7 @@ class Search:
         # the search range is determined by the key
         # not like binary search data is divided into two parts, the search range is determined by the key
         # Since InterpolationSearch can't handle String, i usse this index to handle it
-        idx = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+        idx = ['A','a','B','b','C','c','D','d','E','e','F','f','G','g','H','h','I','i','J','j','K','k','L','l','M','m','N','n','O','o','P','p','Q','q','R','r','S','s','T','t','U','u','V','v','W','w','X','x','Y','y','Z','z']
         low = 0
         high = len(file) - 1
         point = 0
@@ -65,11 +68,12 @@ if __name__ == '__main__':
     search = input("Enter the key to search: ")
     obj = Search(search)
     file = obj.readFile('Daspro.csv')
+    file = obj.sort(file)
     result = obj.InterpolationSearch(file)
 
     if result == -1:
         print(f"{search} not found in the data")
     else:        
-        print(file[int(result)]) 
+        print(file[int(result)])  # Print the result using index
     
     print(f"Runtime: {time() - runtime}")
