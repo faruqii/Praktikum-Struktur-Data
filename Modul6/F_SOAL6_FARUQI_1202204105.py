@@ -26,7 +26,7 @@ class Search:
         
         return file # Return the result file
     
-    def InterpolationSearch(self,file):
+    def InterpolationSearch(self,file: list):
         # Interpolation Search is develop from binary search
         # the algorithm is the same as binary search, but the search range is not fixed
         # the search range is determined by the key
@@ -67,6 +67,7 @@ if __name__ == '__main__':
 
     search = input("Enter the key to search: ")
     obj = Search(search)
+    
     file = obj.readFile('Daspro.csv')
     file = obj.sort(file)
     result = obj.InterpolationSearch(file)
